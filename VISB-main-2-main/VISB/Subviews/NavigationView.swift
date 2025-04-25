@@ -176,6 +176,20 @@ struct NavigationView: View {
         timer?.invalidate()
         timer = nil
         isNavigating = false
+        
+        let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .short
+
+            let newTrip = Trip(
+            id: UUID().hashValue,
+            name: selectedDestination,
+            date: dateFormatter.string(from: Date()),
+            address: selectedDestination,
+            description: "Trip from \(selectedStartLocation) to \(selectedDestination)",
+            imageName: "placeholder"
+        )
+
+        appSettings.tripHistory.append(newTrip)
     }
 
     private func announceStep(_ step: [String: Any]) {

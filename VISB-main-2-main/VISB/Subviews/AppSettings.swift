@@ -15,6 +15,8 @@ class AppSettings: ObservableObject {
     @Published var speechRate: Double = 1.0
     @Published var isHapticFeedbackEnabled: Bool = true
     @Published var isAudioDescriptionsEnabled: Bool = true
+    @Published var tripHistory: [Trip] = []
+    private init() {}
 
     // Simulated ROS Connection
     @Published var isROSConnected: Bool = true
